@@ -1,9 +1,11 @@
 # php-json-to-array-to-code
 Convert JSON object to PHP array or render array as PHP code
 
+把一个PHP数组转换成PHP代码,可方便地用于生成配置文件.<br />
+
 ## Usage
 ```php
-require 'src.php';
+include(__DIR__ . '/src.php');
 $json = '{  
    "hello":"world",
    "properties":{  
@@ -15,20 +17,18 @@ $json = '{
 ```
 ## Return PHP code
 ```php
-echo getCode(json_decode($json, TRUE));
+$code = '$array = ';
+$code .= getCode(json_decode($json, TRUE));
+$code .= ';';
 
-[
-    "hello" => "world",
-    "properties" => [
-        "url" => "https://github.com/matejbukovsky/php-json-to-array",
-        "convert" => TRUE,
-    ],
-    "test" => [
-        0 => "first",
-        1 => "secons",
-        2 => 0,
-    ],
+echo $code;
+
+$array = [
+	'hello' => 'world',
+	'properties' => [
+		'url' => 'https://github.com/matejbukovsky/php-json-to-array',
+		'convert' => TRUE
+	],
+	'test' => ['first','second',0]
 ];
 ```
-## Demo
-[phpFiddle](http://phpfiddle.org/main/code/d6hy-8q53)
