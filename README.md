@@ -1,7 +1,7 @@
 # php-json-to-array-to-code
 Convert JSON object to PHP array or render array as PHP code
 
-把一个PHP数组转换成PHP代码,可方便地用于生成配置文件.<br />
+把一个PHP数组变量转换成PHP代码,可方便地用于生成配置文件.<br />
 
 ## Usage
 ```php
